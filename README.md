@@ -4,14 +4,15 @@ Terraform module that creates auto scaling resources and deploy [sentiment analy
 Following AWS services are created by this module:
 1. VPC
 2. Security Groups
-3. SQS
+3. SQS Queue
 4. Redis cluster
 5. EC2 instance
 6. ECS cluster
 7. ECS Services
-8. ECS Service tasks for sentiment analysis server and web
+8. ECS Service tasks for sentiment analysis [server](https://hub.docker.com/r/gtinside/sentiment-analysis-server) and [web](https://hub.docker.com/r/gtinside/sentiment-analysis-web)
 
 #### Inputs
+<hr/>
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -23,6 +24,8 @@ Following AWS services are created by this module:
 | availability_zone | AWS default availability zone | `string` | `us-east-2a` | no |
 
 #### Outputs
+<hr/>
+
 | Name | Description | 
 |------|-------------|
 | ec2_instance_id | EC2 instance identifier |
@@ -33,10 +36,13 @@ Following AWS services are created by this module:
 | sqs_queue_name | Name of SQS queue |
 | sqs_queue_url | SQS Queue URL for connection |
 
-
 #### Usage
+<hr/>
+
 ```
 terraform init 
 terraform plan
 terraform apply
+# when you are done, don't forget to destroy
+terraform destroy
 ```
