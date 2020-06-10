@@ -1,0 +1,46 @@
+[
+  {
+    "name": "sentiment-analysis-server-stream",
+    "image": "gtinside/sentiment-analysis-server",
+    "cpu": 0,
+    "memory" : 50,
+    "essential": true,
+    "portMappings": [],
+    "environment": [
+      {
+        "name": "ProcessType",
+        "value": "processor"
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region": "us-east-2",
+        "awslogs-group": "sentiment_analysis_server",
+        "awslogs-stream-prefix": "sentiment_analysis_server"
+      }
+    }
+  },
+  {
+    "name": "sentiment-analysis-server-processor",
+    "image": "gtinside/sentiment-analysis-server",
+    "cpu": 0,
+    "memory" : 50,
+    "essential": true,
+    "portMappings": [],
+    "environment": [
+      {
+        "name": "ProcessType",
+        "value": "stream"
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region": "us-east-2",
+        "awslogs-group": "sentiment_analysis_server",
+        "awslogs-stream-prefix": "sentiment_analysis_server"
+      }
+    }
+  }
+]

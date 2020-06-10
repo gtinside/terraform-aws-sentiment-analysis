@@ -1,0 +1,22 @@
+[  {
+  "name": "sentiment-analysis-web",
+  "image": "gtinside/sentiment-analysis-web:latest",
+  "cpu": 0,
+  "memory" : 50,
+  "essential": true,
+  "portMappings": [
+    {
+      "hostPort": 5001,
+      "protocol": "tcp",
+      "containerPort": 5001
+    }
+  ],
+  "logConfiguration": {
+    "logDriver": "awslogs",
+    "options": {
+      "awslogs-region": "us-east-2",
+      "awslogs-group": "sentiment_analysis_web",
+      "awslogs-stream-prefix": "sentiment_analysis_web"
+    }
+  }
+}]
